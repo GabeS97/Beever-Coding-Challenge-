@@ -1,7 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchQuotes } from "../store/quotes";
 
 export default function KanyeQuoteView() {
-
+  // useSelector(state => console.log(state.quotes))
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchQuotes())
+  }, [dispatch])
   return (
     <section style={{ textAlign: "center" }}>
       <img
