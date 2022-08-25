@@ -62,6 +62,9 @@ export const quoteSlice = createSlice({
             }
         }
     }
+    // reducers: {
+        // fetchQuotes
+    // }
 })
 
 export default quoteSlice
