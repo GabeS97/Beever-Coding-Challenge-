@@ -2,7 +2,7 @@
 Membeli makan siang dan menabung
 
 Rusli adalah seorang anak sekolah di SD Beever
-Setiap harinya, Rusli diberikan uang jajan oleh orang tuanya 
+Setiap harinya, Rusli diberikan uang jajan oleh orang tuanya
 sebesar Rp. 10.000,- rupiah.
 
 Rusli bisa menabung atau membeli makanan di sekolahnya untuk
@@ -23,9 +23,24 @@ OUTPUT:
 */
 
 function jumlahTabungan(listHarga, history) {
-    // Write your code here
+  // Write your code here
+  let arr = history.split(/[,-.]+/);
+  let saves = {}
+  day = ''
+  for (let i = 0; i < arr.length; i++) {
+    let s = arr[i];
+    let find = listHarga.find(makan => makan.nama === s);
+    if (!find) {
+      day = s
+      saves[day] = 10000
+    } else {
+      saves[day] -= find?.harga
+    }
+  }
+  let total = Object.values(saves)
+  saves['totalSaved'] = total.reduce((i, j) => i + j)
+  return saves
 }
-
 var hargaMakanan = [
   {
     nama: "ayam",
